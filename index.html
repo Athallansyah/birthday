@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IS IT YOUR BIRTHDAY??</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .login-container {
+      max-width: 350px;
+      margin: 100px auto 0 auto;
+      background: pink;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      border: 2px solid #2196f3;
+      border-radius: 6px;
+      background: #e3f2fd;
+      color: #0d47a1;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #1565c0;
+      background: #bbdefb;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Login Page -->
+  <div id="login-page" class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" /><br><br>
+    <input type="password" id="password" placeholder="Password" /><br><br>
+    <button onclick="handleLogin()">Login</button>
+    <p id="login-error" style="color:red; margin-top:10px;"></p>
+  </div>
+
+  <!-- Main Page (hidden by default) -->
+  <div class="container hidden" id="main-page">
+    <h1>IS IT YOUR BIRTHDAY?? Carisa</h1>
+    <div class="buttons">
+      <button class="yes-button" onclick="handleYesClick()">Yes</button>
+      <button class="no-button" onclick="handleNoClick()">No</button>
+    </div>
+    <div class="gif_container">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif"
+        alt="Cute GIF">
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Ganti sesuai kebutuhan
+    const allowedUsername = "My Birthday";
+    const allowedPassword = "Carisa";
+
+    function handleLogin() {
+      const usn = document.getElementById('username').value.trim();
+      const pwd = document.getElementById('password').value.trim();
+      const error = document.getElementById('login-error');
+      if (usn === allowedUsername && pwd === allowedPassword) {
+        document.getElementById('login-page').classList.add('hidden');
+        document.getElementById('main-page').classList.remove('hidden');
+        error.textContent = "";
+      } else {
+        error.textContent = "Username atau password salah!";
+      }
+    }
+  </script>
+</body>
+
+</html>
